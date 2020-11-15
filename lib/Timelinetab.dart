@@ -63,22 +63,24 @@ class _TimelineTabState extends State<TimelineTab> {
       make_post(icon_name: 'images/cat.png',user_name: 'Bさん', time: '17:53', app_name: 'images/sinken.png'),];
     return  Center(
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children:[
-
-          SizedBox(
-            height: 680.0,
-            child: ListView.separated(
-              padding: EdgeInsets.all(50),
-              scrollDirection: Axis.vertical,
-              itemBuilder: (BuildContext context, int index){
-                return list[index];
-              },
-              separatorBuilder: (BuildContext context, int index){
-                return Container(
-                height: 20,
-                color: BGColor,);
-              },
-              itemCount: list.length,
+          Expanded(
+            flex: 1,
+            child: Scrollbar(
+              child: ListView.separated(
+                padding: EdgeInsets.all(50),
+                scrollDirection: Axis.vertical,
+                itemBuilder: (BuildContext context, int index){
+                  return list[index];
+                },
+                separatorBuilder: (BuildContext context, int index){
+                  return Container(
+                  height: 20,
+                  color: BGColor,);
+                },
+                itemCount: list.length,
+              ),
             ),
           ),
 

@@ -109,7 +109,7 @@ class _NextPageState extends State<NextPage> {
                 maxLines: 1,
                 decoration: const InputDecoration(
                     hintText: 'ニックネームを入力',
-                    hintStyle: TextStyle(color: Colors.white)),
+                    hintStyle: TextStyle(color:Colors.teal)),
               ),
             ),
             Padding(
@@ -118,7 +118,7 @@ class _NextPageState extends State<NextPage> {
                 'このルームで共有する名前を入力できます',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.teal,
                 ),
               ),
             )

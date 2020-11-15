@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'NextPage.dart';
 import 'color.dart';
 
-
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -59,11 +58,13 @@ class _ChangeFormState extends State<ChangeForm> {
                           MaterialPageRoute(builder: (context) => NextPage()),
                         );
                       },
-                      icon: Icon(Icons.login,
-                      color: Colors.white,),
+                      icon: Icon(
+                        Icons.login,
+                        color: BGColor,
+                      ),
                     ),
                   ),
-                  title: new TextFormField(
+                  title: new TextField(
                     enabled: true,
                     // 入力数
                     maxLengthEnforced: false,
@@ -78,61 +79,66 @@ class _ChangeFormState extends State<ChangeForm> {
                     ],
                     decoration: const InputDecoration(
                         hintText: '番号を入力',
-                        hintStyle: TextStyle(fontSize: 20),
+                        hintStyle: TextStyle(fontSize: 20, color: Colors.teal),
                         labelText: 'ルームへ入室',
-                        labelStyle: TextStyle(fontSize: 20)),
+                        labelStyle:
+                            TextStyle(fontSize: 20, color: Colors.teal)),
                   ),
                 ),
               ),
-              Center(
-                child: Column(
-                  children: [
-                    IconButton(
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  SizedBox(
+                    height: 100,
+                    width: 100,
+                    child: IconButton(
                       onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => NextPage()),
                         );
                       },
-                      icon: Icon(Icons.add_circle,
-                        color: ABColor,size: 70
-                        ,),
+                      icon: Icon(
+                        Icons.add_circle,
+                        color: ABColor,
+                        size: 70,
+                      ),
                     ),
-                    SizedBox(
-                      height:40
+                  ),
+                  Text(
+                    'Create New Room',
+                    style: TextStyle(
+                      color: ABColor,
+                      fontWeight: FontWeight.bold,
                     ),
-                    Text('Create New Room')
-                  ],
-                ),
-              ),
-              RaisedButton(
-                child: const Text('入室する'),
-                color: Colors.white,
-                onPressed: () {
-                  print('jisyuu!');
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => NextPage()),
-                  );
-                },
-                highlightElevation: 16,
-                highlightColor: Colors.blue,
-                onHighlightChanged: (value) {},
+                  )
+                ],
               ),
               SizedBox(
-                height: 80.0,
+                height: 30.0,
               ),
-              Text('自動的に相手を選んで勉強するモードです'),
+              RaisedButton(
+                child: const Text('ランダムルームに\n入室する',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    )),
+                color: Colors.brown,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                onPressed: () {},
+              ),
               SizedBox(
                 height: 10.0,
               ),
-              RaisedButton(
-                child: const Text('ランダムルーム\n入室する'),
-                color: Colors.pink[300],
-                onPressed: () {},
-                highlightElevation: 16,
-                highlightColor: Colors.pink,
-                onHighlightChanged: (value) {},
+              Text(
+                '＊自動的に相手を選んで勉強するモードです',
+                style: TextStyle(
+                  color: ABColor,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           )),

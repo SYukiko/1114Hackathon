@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'HomePage.dart';
+import 'Pages/HomePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,12 +7,8 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
+  // 「./Pages/HomePage.dar」 へ移動
   Widget build(BuildContext context) {
-    // final size = MediaQuery.of(context).size;
-    // final padding = MediaQuery.of(context).padding;
-    // var maxHeight = size.height - padding.top - padding.bottom;
-    return MaterialApp(
-      home: HomePage()
-    );
+    return MaterialApp(home: HomePage());
   }
 }

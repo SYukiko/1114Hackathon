@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'RoomPage.dart';
-import 'color.dart';
+import '../color.dart';
 
 class NextPage extends StatefulWidget {
   @override
@@ -8,6 +8,7 @@ class NextPage extends StatefulWidget {
 }
 
 class _NextPageState extends State<NextPage> {
+  // ユーザーアイコンを作成する関数
   Container make_icons(String asset_name) => Container(
       width: 200.0,
       height: 200.0,
@@ -16,18 +17,20 @@ class _NextPageState extends State<NextPage> {
           shape: BoxShape.circle,
           image: DecorationImage(
             fit: BoxFit.scaleDown,
-            image: AssetImage('$asset_name'),
+            image: AssetImage(asset_name),
           ),
-          border: Border.all(width: 20, color: BGColor)
-      )
-  );
+          border: Border.all(width: 20, color: BGColor)));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: BGColor,
       appBar: AppBar(
-          title: Text('プロフィール'),
           backgroundColor: ABColor,
+          title: Text(
+            'プロフィール',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          //右上「参加」ボタン　「./RoomPage.dart」へ移動
           actions: <Widget>[
             RaisedButton(
               child: Text(
@@ -48,22 +51,23 @@ class _NextPageState extends State<NextPage> {
           ]),
       body: Center(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // ユーザーアイコンリスト
             SizedBox(
               height: 300.0,
               child: ListView(scrollDirection: Axis.horizontal, children: [
+                //　初期値を中心にするための空Container
                 Container(
                   width: 110.0,
                   height: 200.0,
                 ),
+                // 顔なしユーザーアイコン
                 Center(
                   child: Container(
                     width: 200.0,
                     height: 200.0,
-                    child: Stack(
-                        alignment: Alignment.bottomRight,
-                        children: [
+                    child: Stack(alignment: Alignment.bottomRight, children: [
+                      // 人型アイコン
                       Container(
                         width: 200,
                         height: 200,
@@ -73,6 +77,7 @@ class _NextPageState extends State<NextPage> {
                           color: Colors.teal[100],
                         ),
                       ),
+                      // 右下カメラアイコン
                       Container(
                         width: 50,
                         height: 50,
@@ -91,12 +96,14 @@ class _NextPageState extends State<NextPage> {
                 make_icons('images/dog.png'),
                 make_icons('images/cat.png'),
                 make_icons('images/clown-fish.png'),
+                //スクロール位置調整のための空Container
                 Container(
                   width: 100.0,
                   height: 200.0,
                 ),
               ]),
             ),
+            //名前入力テキストフィールド
             SizedBox(
               width: 200,
               child: TextField(
@@ -109,7 +116,7 @@ class _NextPageState extends State<NextPage> {
                 maxLines: 1,
                 decoration: const InputDecoration(
                     hintText: 'ニックネームを入力',
-                    hintStyle: TextStyle(color:Colors.teal)),
+                    hintStyle: TextStyle(color: Colors.teal)),
               ),
             ),
             Padding(

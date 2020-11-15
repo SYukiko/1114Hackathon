@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'NextPage.dart';
-import 'color.dart';
+import '../color.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,16 +26,9 @@ class ChangeForm extends StatefulWidget {
 }
 
 class _ChangeFormState extends State<ChangeForm> {
-  String _text = '';
-
-  void _handleText(String e) {
-    setState(() {
-      _text = e;
-    });
-  }
-
   Widget build(BuildContext context) {
     return SafeArea(
+      // ルーム番号入力Container
       child: Container(
           padding: const EdgeInsets.all(30.0),
           child: Column(
@@ -46,6 +39,27 @@ class _ChangeFormState extends State<ChangeForm> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: ListTile(
+                  // ルーム番号入力テキストフィールド
+                  title: new TextField(
+                    enabled: true,
+                    maxLengthEnforced: false,
+                    style: TextStyle(
+                        color: ABColor,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w500),
+                    obscureText: false,
+                    maxLines: 1,
+
+                    // focus時の動作
+                    decoration: const InputDecoration(
+                        hintText: '番号を入力',
+                        hintStyle: TextStyle(fontSize: 20, color: Colors.teal),
+                        labelText: 'ルームへ入室',
+                        labelStyle:
+                            TextStyle(fontSize: 20, color: Colors.teal)),
+                  ),
+
+                  //　ログインボタン「./NextPage.dart」へ移動
                   trailing: Ink(
                     decoration: const ShapeDecoration(
                       color: Colors.teal,
@@ -64,31 +78,14 @@ class _ChangeFormState extends State<ChangeForm> {
                       ),
                     ),
                   ),
-                  title: new TextField(
-                    enabled: true,
-                    // 入力数
-                    maxLengthEnforced: false,
-                    style: TextStyle(
-                        color: ABColor,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.w500),
-                    obscureText: false,
-                    maxLines: 1,
-                    inputFormatters: <TextInputFormatter>[
-                      WhitelistingTextInputFormatter.digitsOnly,
-                    ],
-                    decoration: const InputDecoration(
-                        hintText: '番号を入力',
-                        hintStyle: TextStyle(fontSize: 20, color: Colors.teal),
-                        labelText: 'ルームへ入室',
-                        labelStyle:
-                            TextStyle(fontSize: 20, color: Colors.teal)),
-                  ),
                 ),
               ),
+
+              // 「Create New Room」ボタン「./NextPage.dart」へ移動
               Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
+                  // 追加アイコンボタン
                   SizedBox(
                     height: 100,
                     width: 100,
@@ -106,6 +103,7 @@ class _ChangeFormState extends State<ChangeForm> {
                       ),
                     ),
                   ),
+                  // text[Create New Room]
                   Text(
                     'Create New Room',
                     style: TextStyle(
@@ -118,6 +116,7 @@ class _ChangeFormState extends State<ChangeForm> {
               SizedBox(
                 height: 30.0,
               ),
+              // ランダムルーム入室ボタン「./NextPage.dart」へ移動
               RaisedButton(
                 child: const Text('ランダムルームに\n入室する',
                     textAlign: TextAlign.center,
@@ -128,7 +127,12 @@ class _ChangeFormState extends State<ChangeForm> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NextPage()),
+                  );
+                },
               ),
               SizedBox(
                 height: 10.0,
@@ -141,7 +145,8 @@ class _ChangeFormState extends State<ChangeForm> {
                 ),
               ),
             ],
-          )),
+          )
+      ),
     );
   }
 }

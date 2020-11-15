@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../color.dart';
+import '../settings.dart';
 
 class RoomTab extends StatefulWidget {
   RoomTab({this.U});

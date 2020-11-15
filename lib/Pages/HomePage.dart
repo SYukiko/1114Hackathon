@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'NextPage.dart';
-import '../color.dart';
+import '../settings.dart';
 
 class HomePage extends StatefulWidget {
   @override

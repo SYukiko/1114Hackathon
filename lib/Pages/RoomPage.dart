@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
-import 'Roomtab.dart';
-import 'Timelinetab.dart';
-import '../color.dart';
+import 'JustNow_tab.dart';
+import 'History_tab.dart';
+import '../settings.dart';
 
 class RoomPage extends StatefulWidget {
   @override

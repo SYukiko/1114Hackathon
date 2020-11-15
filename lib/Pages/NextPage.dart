@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'RoomPage.dart';
-import '../color.dart';
+import '../settings.dart';
 
 class NextPage extends StatefulWidget {
   @override
